@@ -16,7 +16,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import cat.dam.andy.sqlite_recyclerview.adapter.CustomRecyclerView;
-import cat.dam.andy.sqlite_recyclerview.database.Database;
+import cat.dam.andy.sqlite_recyclerview.database.DatabaseHelper;
 
 
 import java.util.ArrayList;
@@ -26,12 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private Database mDatabase;
-    private ArrayList<Item> items =new ArrayList<>();
+    private DatabaseHelper mDatabaseHelper;
     private CustomRecyclerView mAdapter;
     private RecyclerView rc_nameList;
     private FloatingActionButton fab;
-    private LinearLayoutManager linearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +47,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        linearLayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rc_nameList.setLayoutManager(linearLayoutManager);
         rc_nameList.setHasFixedSize(true);
     }
 
     private void initDatabase() {
-        mDatabase = new Database(this);
-        items = mDatabase.listAll();
+        mDatabaseHelper = new DatabaseHelper(this);
+        ArrayList<Item> items = mDatabaseHelper.listAll();
         if(items.size() > 0){
             rc_nameList.setVisibility(View.VISIBLE);
             mAdapter = new CustomRecyclerView(this, items);
@@ -92,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else{
                 Item newItem = new Item(name, phone);
-                mDatabase.addContact(newItem);
+                mDatabaseHelper.addContact(newItem);
                 finish();
                 startActivity(getIntent());
             }
@@ -105,8 +103,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mDatabase != null){
-            mDatabase.close();
+        if(mDatabaseHelper != null){
+            mDatabaseHelper.close();
         }
     }
 

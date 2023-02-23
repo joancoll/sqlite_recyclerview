@@ -16,21 +16,21 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import cat.dam.andy.sqlite_recyclerview.Item;
-import cat.dam.andy.sqlite_recyclerview.database.Database;
+import cat.dam.andy.sqlite_recyclerview.database.DatabaseHelper;
 import cat.dam.andy.sqlite_recyclerview.R;
 
 public class CustomRecyclerView extends RecyclerView.Adapter<ViewHolder> implements Filterable{
     private final Context context;
     private ArrayList<Item> dataSet;
     private final ArrayList<Item> itemList;
-    private final Database database;
+    private final DatabaseHelper databaseHelper;
 
     //Constructor, aquí passem els ítems que mostrarem, és a dir, el model de dades
     public CustomRecyclerView(Context context, ArrayList<Item> dataSet) {
         this.context = context;
         this.dataSet = dataSet;
         this.itemList = dataSet;
-        database = new Database(context);
+        databaseHelper = new DatabaseHelper(context);
     }
 
     //Només es crida la primera vegada en crear la llista
@@ -52,7 +52,7 @@ public class CustomRecyclerView extends RecyclerView.Adapter<ViewHolder> impleme
         viewHolder.getEditImg().setOnClickListener(view -> showEditionDialog(item));
         viewHolder.getDeleteImg().setOnClickListener(view -> {
             //elimina fila de la base de dades
-            database.removeContact(item.getId());
+            databaseHelper.removeContact(item.getId());
             //refresca la pàgina de l'activity per veure canvis
             ((Activity)context).finish();
             context.startActivity(((Activity) context).getIntent());
@@ -119,7 +119,7 @@ public class CustomRecyclerView extends RecyclerView.Adapter<ViewHolder> impleme
             }
             else{
                 if (item != null) {
-                    database.updateContact(new Item(item.getId(), nom, tel));
+                    databaseHelper.updateContact(new Item(item.getId(), nom, tel));
                     //refresh the activity
                     ((Activity) context).finish();
                     context.startActivity(((Activity) context).getIntent());

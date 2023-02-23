@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import cat.dam.andy.sqlite_recyclerview.Item;
 
 
-public class Database extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
 
     private	static final int DB_VERSION =	1;
     private	static final String DB_NAME = "Contacts";
@@ -21,7 +21,7 @@ public class Database extends SQLiteOpenHelper {
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_PHONE = "phone";
 
-    public Database(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
