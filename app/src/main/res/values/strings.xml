@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Base dades Contactes</string>
+    <string name="find">Cerca</string>
+    <string name="enter_name">Entri el nom</string>
+    <string name="enter_phone">Entri el telèfon</string>
+    <string name="no_contacts">No hi ha contactes a la base de dades. Podeu afegir-ne</string>
+    <string name="noadd_error">Error. No s\'ha afegit contacte. Hi havia algun valor buit</string>
+    <string name="new_contact">Nou contacte</string>
+    <string name="add_contact">AFEGIR CONTACTE</string>
+    <string name="contact_edition">Edició de contacte</string>
+    <string name="edit_contact">MOFIFICAR CONTACTE</string>
+    <string name="cancel">CANCEL·LAR</string>
+    <string name="cancelled_task">Tasca cancel·lada</string>
+    <string name="contact_null">Contacte nul</string>
+</resources>
