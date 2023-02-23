@@ -13,7 +13,7 @@ import cat.dam.andy.sqlite_recyclerview.Item;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private	static final int DB_VERSION =	1;
+    private	static final int DB_VERSION =	7;
     private	static final String DB_NAME = "Contacts";
     private	static final String TABLE_NAME = "contacts";
 

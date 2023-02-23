@@ -13,4 +13,7 @@
     <string name="cancel">CANCEL·LAR</string>
     <string name="cancelled_task">Tasca cancel·lada</string>
     <string name="contact_null">Contacte nul</string>
+    <string name="add">Add</string>
+    <string name="delete">delete</string>
+    <string name="edit">edit</string>
 </resources>

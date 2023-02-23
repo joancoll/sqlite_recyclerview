@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="1dp"
@@ -22,7 +21,6 @@
                 android:id="@+id/tv_name"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
                 android:textColor="@color/colorBlack"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -31,7 +29,6 @@
                 android:id="@+id/tv_phone"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
                 android:textColor="@color/colorBlack"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -43,14 +40,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:src="@android:drawable/ic_menu_edit" />
+            android:src="@android:drawable/ic_menu_edit"
+            android:contentDescription="@string/edit" />
         <ImageView
             android:id="@+id/img_delete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:src="@android:drawable/ic_menu_delete" />
+            android:src="@android:drawable/ic_menu_delete"
+            android:contentDescription="@string/delete" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
